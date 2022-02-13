@@ -4,40 +4,43 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+  private float forwardInput;
+  private float rightInput;
 
   private Vector3 velocity;
 
+  public Camera cam;
+
   public CameraController cameraController;
-  // Start is called before the first frame update
   void Start()
   {
 
   }
 
-  // Update is called once per frame
   void Update()
   {
-    transform.Translate(velocity);
   }
 
   public void moveInputHandler(float x, float z)
   {
     Debug.Log("x:" + x + "z:" + z);
+    rightInput = x;
+    forwardInput = z;
+
+    // 我的方法
+    // var charcartForward = (transform.position - cam.transform.position).normalized;
+    // var forwardDis = charcartForward * forwardInput;
+    // var rightDis = Vector3.Cross(Vector3.up, charcartForward) * rightInput;
+    // var direction = forwardDis + rightDis;
+    // direction = Vector3.ProjectOnPlane(direction, Vector3.up).normalized;
+    // transform.position += direction;
 
 
-    // Vector3 cameraTrans = x * cameraController.transform.right + z * cameraController.transform.forward;
+    // 印度老鼠的方法好像更简单
+    var forwardDis = forwardInput * cameraController.transform.forward;
+    var rightDis = rightInput * cameraController.transform.right;
+    var direction = Vector3.ProjectOnPlane(forwardDis + rightDis, Vector3.up).normalized;
 
-    // if (velocity.magnitude > 0)
-    // {
-    //   velocity = (cameraTrans - transform.position).normalized;
-
-    // }
-    // else
-    // {
-    //   velocity = Vector3.zero;
-    // }
-
-    transform.Rotate(new Vector3(cameraController.transform.localRotation.x, cameraController.transform.localRotation.y, cameraController.transform.localRotation.z));
-    
+    transform.position += direction;
   }
 }

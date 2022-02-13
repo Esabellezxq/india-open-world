@@ -2,25 +2,23 @@
 
 public class CameraController : MonoBehaviour
 {
-  private Quaternion camRotation;
+  private Vector3 camEuler;
   private float cameraSmoothFactor = 1;
 
   private float lookUpMax = 45;
   private float lookUpMin = -45;
-  
-  // Start is called before the first frame update
+
   void Start()
   {
-    camRotation = transform.localRotation;
+    camEuler = transform.rotation.eulerAngles;
+    Cursor.lockState = CursorLockMode.Locked;
   }
 
-  // Update is called once per frame
   void Update()
   {
-    camRotation.x += -Input.GetAxis("Mouse Y") * cameraSmoothFactor; // look up/down
-    camRotation.x = Mathf.Clamp(camRotation.x, lookUpMin, lookUpMax);
-    camRotation.y += Input.GetAxis("Mouse X") * cameraSmoothFactor;  // look left/right
-    transform.localRotation = Quaternion.Euler(camRotation.x, camRotation.y, camRotation.z);
-    // Debug.Log($"x: {camRotation.x}, y: {camRotation.y}");
+    camEuler.x += -Input.GetAxis("Mouse Y") * cameraSmoothFactor;
+    camEuler.x = Mathf.Clamp(camEuler.x, lookUpMin, lookUpMax);
+    camEuler.y += Input.GetAxis("Mouse X") * cameraSmoothFactor;
+    transform.rotation = Quaternion.Euler(camEuler);
   }
 }
