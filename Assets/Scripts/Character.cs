@@ -12,6 +12,8 @@ public class Character : MonoBehaviour
   public Camera cam;
 
   public CameraController cameraController;
+
+  public GameObject michelle;
   void Start()
   {
 
@@ -19,11 +21,13 @@ public class Character : MonoBehaviour
 
   void Update()
   {
+    transform.position += velocity;
+
   }
 
   public void moveInputHandler(float x, float z)
   {
-    Debug.Log("x:" + x + "z:" + z);
+    // Debug.Log("x:" + x + "z:" + z);
     rightInput = x;
     forwardInput = z;
 
@@ -40,7 +44,27 @@ public class Character : MonoBehaviour
     var forwardDis = forwardInput * cameraController.transform.forward;
     var rightDis = rightInput * cameraController.transform.right;
     var direction = Vector3.ProjectOnPlane(forwardDis + rightDis, Vector3.up).normalized;
+    if (direction.magnitude > 0)
+    {
+      velocity = direction;
+    }
+    else
+    {
+      velocity = Vector3.zero;
+    }
+    if (x != 0 || z != 0)
+    {
+      var newRotate = cameraController.transform.rotation;
+      newRotate.x = michelle.transform.rotation.x;
+      newRotate.z = michelle.transform.rotation.z;
+      michelle.transform.rotation = newRotate;
+    }
 
-    transform.position += direction;
+  }
+
+  public float getVelocity()
+  {
+    Debug.Log("velocity:" + velocity.magnitude);
+    return velocity.magnitude;
   }
 }

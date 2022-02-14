@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2035111234}
-  m_IndirectSpecularColor: {r: 130.92877, g: 162.21216, b: 214.72275, a: 1}
+  m_IndirectSpecularColor: {r: 130.94293, g: 162.17055, b: 214.55537, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 849620088}
   - component: {fileID: 230758585}
   - component: {fileID: 230758586}
+  - component: {fileID: 230758587}
   m_Layer: 0
   m_Name: character
   m_TagString: Untagged
@@ -202,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1297650283}
   cameraController: {fileID: 804026855}
+  michelle: {fileID: 1154076571}
 --- !u!114 &230758586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,6 +216,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74a7596922f54d239546653b59482c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &230758587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230758584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ad71017f71c4ab2ae92af79be67bb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1154076572}
 --- !u!1 &313761473
 GameObject:
   m_ObjectHideFlags: 1
@@ -739,6 +754,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1154076571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 58f9154b2ab434f4581becfc1d06af14,
+    type: 3}
+  m_PrefabInstance: {fileID: 1847552300}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1154076572
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154076571}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 58f9154b2ab434f4581becfc1d06af14, type: 3}
+  m_Controller: {fileID: 9100000, guid: 329156e1b56f74515aa33814be4f88de, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1297650280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,7 +1136,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 58f9154b2ab434f4581becfc1d06af14,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.01723075
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 58f9154b2ab434f4581becfc1d06af14,
         type: 3}
@@ -1106,7 +1146,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 58f9154b2ab434f4581becfc1d06af14,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.0026779175
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 58f9154b2ab434f4581becfc1d06af14,
         type: 3}
@@ -1148,7 +1188,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: michelle
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5866666021909216657, guid: 58f9154b2ab434f4581becfc1d06af14,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 58f9154b2ab434f4581becfc1d06af14,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 329156e1b56f74515aa33814be4f88de, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 58f9154b2ab434f4581becfc1d06af14,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 58f9154b2ab434f4581becfc1d06af14,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: 58f9154b2ab434f4581becfc1d06af14, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 58f9154b2ab434f4581becfc1d06af14, type: 3}
 --- !u!4 &1847552301 stripped
 Transform:

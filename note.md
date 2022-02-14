@@ -15,8 +15,11 @@
 > void test() {
 >   callFunc(0.1f, 2)
 > }
-> 
-
+> ```
+> 这种情况加f就没有很大意义了
+> ```
+> float a = 0.1f;
+> ```
 |类型	  | 描述	范围	默认值
 |  ----  | ----  |
 |bool	  |布尔值	True 或 False	False
@@ -35,7 +38,8 @@
 
 - [x] 为什么使用矩阵来形容点的变换
 > 我们不妨回忆一下，矩阵是怎么产生的。矩阵可以看成是一个个向量的有序组合，这说明矩阵可以类比向量；但是向量又是怎么产生的？向量则是一个个数字的有序组合，这又把我们的研究方向指向了“数字是什么”这个问题上。比如，数字1是什么？它可以代表1米，可以代表1千克，也可以代表1分钟、1摄氏度甚至1个苹果。它为什么有这么多的表示意义？答案很简单，因为在本质上，它什么都不是，它就是数字1，一个记号，一个抽象的概念。正因为它抽象，它才可以被赋予各种各样直观的意义！回到矩阵本身，我们才会明白，矩阵的作用如此之大，就是因为书本上那个很枯燥的定义——矩阵就是m行n列的一个数表！它把矩阵抽象出来，让它得到了“进化”。它是一个更一般化的概念：一个向量可以看作一个矩阵，甚至一个数都可以看成一个矩阵，等等。
-> 缩放（scale）需要两个变换因素、镜像（reflection）需要两个变换因素、错切/斜切(shear mapping/skew)需要三个变换因素、旋转（rotation）需要四个变换因素，而且这些因素都和x、y相关，为了统一这个变换的数据格式，采取了矩阵这个数据形式
+>
+> 缩放（scale）需要两个变换因素、镜像（reflection）需要两个变换因素、错切/斜切(shear mapping/skew)需要三个变换因素、旋转（rotation）需要四个变换因素，而且这些因素都和x、y相关，位移（translate）仿射变换则需要两个变换因素，但是因为不是与x、y相关的，所以需要额外的两个数据，因此产生齐次坐标概念，为了统一这个变换的数据格式，采取了矩阵这个数据形式
 
 
 
@@ -71,5 +75,16 @@
 - [ ] unity的叉乘方向
 - [ ] Vector3.ProjectOnPlane
 - [ ] c# 官网看下查漏补缺 https://docs.microsoft.com/zh-cn/dotnet/csharp/tour-of-csharp/
-- [ ] scene graph https://webglfundamentals.org/webgl/lessons/zh_cn/webgl-scene-graph.html
+- [ ] scene graph https://webglfundamentals.org/webgl/lessons/zh_cn/webgl-scene-graph.html　　　
 - [ ] 光怎么打都不够亮，补一下https://docs.unity3d.com/cn/2019.4/Manual/LightingOverview.html
+- [ ] 盘点游戏中各种主角视角，实现一下
+
+
+# 2022.02.14开发日记
+## 实现功能
+- 行走和跑步动画状态机和混合树，动画重定向
+- 根据行走速度改变动画
+  
+## TODO List
+- [ ] 动画概念 file:///Users/bytedance/Documents/%E5%AD%A6%E4%B9%A0&%E6%80%9D%E8%80%83/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/UnityDocumentation/Manual/BlendTree-1DBlending.html
+- [ ] 行走速度调出差别，人物刚启动时是走路，渐渐变成跑步
