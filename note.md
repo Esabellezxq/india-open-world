@@ -87,4 +87,14 @@
   
 ## TODO List
 - [ ] 动画概念 file:///Users/bytedance/Documents/%E5%AD%A6%E4%B9%A0&%E6%80%9D%E8%80%83/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/UnityDocumentation/Manual/BlendTree-1DBlending.html
-- [ ] 行走速度调出差别，人物刚启动时是走路，渐渐变成跑步
+
+
+# 2022.2.15开发日记
+
+## 实现功能
+- character和character移动解藕
+- character碰撞检测，不穿透建筑
+- character状态定义，状态和状态对应的行走速度映射
+
+## TODO List
+- [ ]Animation Root Transform 参数定义和用处file:///Users/bytedance/Documents/%E5%AD%A6%E4%B9%A0&%E6%80%9D%E8%80%83/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/UnityDocumentation/Manual/class-AnimationClip.html

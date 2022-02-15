@@ -37,12 +37,13 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraController.cs" />
-     <Compile Include="Assets\Scripts\Character.cs" />
-     <Compile Include="Assets\Scripts\CharacterAC.cs" />
-     <Compile Include="Assets\Scripts\FuncTest.cs" />
-     <Compile Include="Assets\Scripts\MainCharacter.cs" />
-     <Compile Include="Assets\Scripts\PlayerInput.cs" />
+     <Compile Include="Assets\Scripts\Character\Character.cs" />
+     <Compile Include="Assets\Scripts\Character\CharacterAnimation.cs" />
+     <Compile Include="Assets\Scripts\Character\CharacterMovement.cs" />
+     <Compile Include="Assets\Scripts\Character\PlayerInput.cs" />
      <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
+     <Compile Include="Assets\Scripts\Test\FuncTest.cs" />
+     <Compile Include="Assets\Scripts\Test\MainCharacter.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Applications/Unity/Hub/Editor/2019.4.28f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
