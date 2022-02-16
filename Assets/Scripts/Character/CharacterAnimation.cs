@@ -5,12 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterMovement))]
 public class CharacterAnimation : MonoBehaviour
 {
-  private CharacterMovement character;
+  private CharacterMovement characterMovement;
   public Animator animator;
   // Start is called before the first frame update
   void Start()
   {
-    character = GetComponent<CharacterMovement>();
+    characterMovement = GetComponent<CharacterMovement>();
   }
 
   // Update is called once per frame
@@ -22,7 +22,9 @@ public class CharacterAnimation : MonoBehaviour
       return;
     }
 
-    animator.SetFloat("velocity", character.Velocity.magnitude);
-    Debug.Log(character.Velocity.magnitude);
+    var length = characterMovement.RidgidVelocity.magnitude;
+    var readableLength = (int)length;
+    // Debug.Log(readableLength);
+    animator.SetFloat("velocity", length);
   }
 }

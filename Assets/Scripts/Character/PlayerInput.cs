@@ -13,13 +13,13 @@ public class PlayerInput : MonoBehaviour
     characterMovement = GetComponent<CharacterMovement>();
   }
 
-  // Update is called once per frame
   void Update()
   {
-    character.moveInputHandler(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-    if (Input.GetKeyDown(KeyCode.CapsLock))
+    character.MoveInputHandler(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+    if (Input.GetKeyDown(KeyCode.LeftShift))
     {
-
+      Debug.Log("shift press");
+      characterMovement.SwitchWalkingAndRunning();
     }
   }
 }

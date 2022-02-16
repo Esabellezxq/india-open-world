@@ -98,3 +98,13 @@
 
 ## TODO List
 - [ ]Animation Root Transform 参数定义和用处file:///Users/bytedance/Documents/%E5%AD%A6%E4%B9%A0&%E6%80%9D%E8%80%83/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/UnityDocumentation/Manual/class-AnimationClip.html
+
+
+# 2022.2.16开发日记
+## 实现功能
+- 用shift切换行走和跑路
+- 用lerp平滑旋转和状态变化引起的动画变化
+  
+## TODO List
+- [ ] lerp原理
+- [ ] caps lock按下无法触发事件

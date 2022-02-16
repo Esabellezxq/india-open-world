@@ -22,7 +22,7 @@ public class Character : MonoBehaviour
   {
   }
 
-  public void moveInputHandler(float rightInput, float forwardInput)
+  public void MoveInputHandler(float rightInput, float forwardInput)
   {
     // Debug.Log("x:" + x + "z:" + z);
 

@@ -13,13 +13,18 @@ public class CharacterMovement : MonoBehaviour
     set => velocity = value;
   }
 
-  private float speed = 10;
+  private Vector3 ridgidVelocity;
+  public Vector3 RidgidVelocity
+  {
+    get => characterRidgidBody.velocity;
+  }
+  private float smoothSpeed = 0;
 
   private float maxSpeed = 5;
   public Transform characterMesh;
   private Rigidbody characterRidgidBody;
 
-  public MovementMode movementMode;
+  private MovementMode movementMode = MovementMode.Walking;
 
   public Dictionary<MovementMode, float> stateSpeedMap = new Dictionary<MovementMode, float>()
   {
@@ -41,12 +46,14 @@ public class CharacterMovement : MonoBehaviour
   void Update()
   {
     // transform.position += Velocity;
-    var v = Velocity.normalized;
-    characterRidgidBody.velocity = new Vector3(v.x * speed, v.y, v.z * speed);
     if (Velocity.magnitude > 0)
     {
-      characterMesh.rotation = Quaternion.LookRotation(velocity);
+      var v = Velocity.normalized;
+      characterRidgidBody.velocity = new Vector3(v.x * smoothSpeed, v.y, v.z * smoothSpeed);
+      Debug.Log("Velocity.magnitude > 0");
 
+      smoothSpeed = Mathf.Lerp(smoothSpeed, maxSpeed, Time.deltaTime * 5);
+      characterMesh.rotation = Quaternion.Lerp(characterMesh.rotation, Quaternion.LookRotation(velocity), Time.deltaTime * 10);
       // 另一种旋转方式
       // if (x != 0 || z != 0)
       // {
@@ -55,16 +62,37 @@ public class CharacterMovement : MonoBehaviour
       //   newRotate.z = michelle.transform.rotation.z;
       // }
     }
+    else
+    {
+      smoothSpeed = Mathf.Lerp(smoothSpeed, 0, Time.deltaTime);
+      if (smoothSpeed < 0.1)
+      {
+        smoothSpeed = 0;
+      }
+    }
   }
 
-  public void setMovementMode(MovementMode movementMode)
+  public void SetMovementMode(MovementMode m)
   {
+    movementMode = m;
     var isSuccess = stateSpeedMap.TryGetValue(movementMode, out maxSpeed);
+    Debug.Log("set MovementMode state" + isSuccess);
   }
 
-  public MovementMode getMovementMode()
+  public MovementMode GetMovementMode()
   {
     return movementMode;
   }
 
+  public void SwitchWalkingAndRunning()
+  {
+    if (GetMovementMode() == MovementMode.Walking)
+    {
+      SetMovementMode(MovementMode.Running);
+    }
+    else
+    {
+      SetMovementMode(MovementMode.Walking);
+    }
+  }
 }
