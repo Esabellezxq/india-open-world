@@ -108,3 +108,11 @@
 ## TODO List
 - [ ] lerp原理
 - [ ] caps lock按下无法触发事件
+
+# 2022.2.17开发日记
+
+## 实现功能
+- 用c切换蹲下和站起
+
+## TODO List
+- [] Animator Controller面板的属性调查
