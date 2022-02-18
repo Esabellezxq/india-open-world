@@ -84,15 +84,27 @@ public class CharacterMovement : MonoBehaviour
     return movementMode;
   }
 
-  public void SwitchWalkingAndRunning()
+  public void ToggleRunning()
   {
-    if (GetMovementMode() == MovementMode.Walking)
+    if (GetMovementMode() == MovementMode.Running)
     {
-      SetMovementMode(MovementMode.Running);
+      SetMovementMode(MovementMode.Walking);
     }
     else
     {
+      SetMovementMode(MovementMode.Running);
+    }
+  }
+
+  public void ToggleCrouching()
+  {
+    if (GetMovementMode() == MovementMode.Crouching)
+    {
       SetMovementMode(MovementMode.Walking);
+    }
+    else
+    {
+      SetMovementMode(MovementMode.Crouching);
     }
   }
 }

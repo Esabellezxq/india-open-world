@@ -27,4 +27,10 @@ public class CharacterAnimation : MonoBehaviour
     // Debug.Log(readableLength);
     animator.SetFloat("velocity", length);
   }
+
+  public void SetAnimatorMoveMode()
+  {
+    var mode = (int)characterMovement.GetMovementMode();
+    animator.SetInteger("moveState", mode);
+  }
 }
