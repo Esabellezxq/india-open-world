@@ -33,5 +33,17 @@ public class PlayerInput : MonoBehaviour
       characterMovement.ToggleCrouching();
       CharacterAnimation.SetAnimatorMoveMode();
     }
+
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+      Debug.Log("space pressed");
+      characterMovement.ToggleSprinting(true);
+      CharacterAnimation.SetAnimatorMoveMode();
+    }
+
+    if (Input.GetKeyUp(KeyCode.Space))
+    {
+      characterMovement.ToggleSprinting(false);
+    }
   }
 }

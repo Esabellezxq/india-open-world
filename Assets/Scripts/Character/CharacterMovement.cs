@@ -39,6 +39,7 @@ public class CharacterMovement : MonoBehaviour
   void Start()
   {
     characterRidgidBody = GetComponent<Rigidbody>();
+    SetMovementMode(MovementMode.Walking);
 
   }
 
@@ -50,7 +51,6 @@ public class CharacterMovement : MonoBehaviour
     {
       var v = Velocity.normalized;
       characterRidgidBody.velocity = new Vector3(v.x * smoothSpeed, v.y, v.z * smoothSpeed);
-      Debug.Log("Velocity.magnitude > 0");
 
       smoothSpeed = Mathf.Lerp(smoothSpeed, maxSpeed, Time.deltaTime * 5);
       characterMesh.rotation = Quaternion.Lerp(characterMesh.rotation, Quaternion.LookRotation(velocity), Time.deltaTime * 10);
@@ -105,6 +105,18 @@ public class CharacterMovement : MonoBehaviour
     else
     {
       SetMovementMode(MovementMode.Crouching);
+    }
+  }
+
+  public void ToggleSprinting(bool enable)
+  {
+    if (enable)
+    {
+      SetMovementMode(MovementMode.Sprinting);
+    }
+    else
+    {
+      SetMovementMode(MovementMode.Running);
     }
   }
 }
