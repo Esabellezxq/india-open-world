@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\Character\Character.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterAnimation.cs" />
+     <Compile Include="Assets\Scripts\Character\CharacterAudio.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterMovement.cs" />
      <Compile Include="Assets\Scripts\Character\PlayerInput.cs" />
      <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
