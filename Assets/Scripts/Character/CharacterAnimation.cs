@@ -31,6 +31,7 @@ public class CharacterAnimation : MonoBehaviour
   public void SetAnimatorMoveMode()
   {
     var mode = (int)characterMovement.GetMovementMode();
+    Debug.Log("set animation mode mode");
     animator.SetInteger("moveState", mode);
   }
 }

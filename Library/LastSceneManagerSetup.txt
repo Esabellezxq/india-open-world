@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/open-world.unity
+- path: Assets/Scenes/lab.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
